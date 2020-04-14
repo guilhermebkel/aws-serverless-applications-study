@@ -1,0 +1,24 @@
+service: image-analysis
+app: image-analysis-app
+org: guilhermebromonschenkel
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - rekognition:DetectLabels
+      Resource: "*"
+    - Effect:
+      Action:
+        - translate:TranslateText
+      Resource: "*"
+
+functions:
+  image-analysis:
+    handler: handler.main
+    events:
+      - http:
+          path: analyse
+          method: get
