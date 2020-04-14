@@ -58,9 +58,13 @@ sls invoke local -f $FUNCTION_NAME
 # Ex: sls invoke local -f hello
 
 # Configure serverless dashboard
-sls
+sls dashboard
 
 # Listen for invocation logs (like a CloudWatch)
 sls logs -f $FUNCTION_NAME -t
 # Ex: sls logs -f hello -t
+
+# Make requests to invoke function based on the request.json file
+sls invoke local -f $FUNCTION_NAME --path request.json
+# Ex: sls invoke local -f image-analysis --path request.json
 ```
