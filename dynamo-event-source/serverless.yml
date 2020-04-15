@@ -49,8 +49,8 @@ functions:
     handler: handler.heroesTrigger
     events:
       - stream:
-        type: dynamodb
-        arn:
-          Fn::GetAtt:
-            - HeroesTable
-            - StreamArn
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - HeroesTable
+              - StreamArn
