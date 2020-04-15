@@ -54,7 +54,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 # libs
 - Joi.js
 ```
-3. **scheduler:** A cron lambda that gets invoke to read random website page data.
+3. **scheduler:** A cron lambda that gets invoked to read random website page data.
 ```sh
 # patterns
 - Multiple Environments Pattern
