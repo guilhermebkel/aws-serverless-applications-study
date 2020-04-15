@@ -1,0 +1,56 @@
+service: dynamo-event-source
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    DYNAMODB_TABLE: Heroes
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:PutItem
+        - dynamodb:ListStreams
+        - dynamodb:DescribeStream
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+resources:
+  Resources:
+    HeroesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: nome
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: nome
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+
+functions:
+  hero-insert:
+    handler: handler.heroesInsert
+    events:
+      - http:
+          path: heroes
+          method: post
+          cors: true
+  hero-trigger:
+    handler: handler.heroesTrigger
+    events:
+      - stream:
+        type: dynamodb
+        arn:
+          Fn::GetAtt:
+            - HeroesTable
+            - StreamArn

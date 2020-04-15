@@ -1,0 +1,20 @@
+{
+  "name": "dynamo-event-source",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "sls deploy",
+    "invoke": "sls invoke -f hero-insert --path requests-mock/hero.insert.json",
+    "invoke:local": "sls invoke local -f hero-insert --path requests-mock/hero.insert.json",
+    "invoke:trigger": "sls invoke local -f hero-trigger --path requests-mock/hero.trigger.json",
+    "logs": "sls logs -f hero-trigger -t"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "aws-sdk": "^2.656.0"
+  }
+}
