@@ -13,5 +13,5 @@ Table:
       - AttributeName: commitMessage
         KeyType: RANGE
     ProvisionedThroughput:
-      ReadCapacityUnits: ${self:custom.DbReadCapacityUnits}
-      WriteCapacityUnits: ${self:custom.DbWriteCapacityUnits}
+      ReadCapacityUnits: ${self:custom.dbReadCapacityUnits}
+      WriteCapacityUnits: ${self:custom.dbWriteCapacityUnits}
