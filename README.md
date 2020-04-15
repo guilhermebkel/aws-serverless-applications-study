@@ -20,9 +20,9 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 
 ## Summary
 
-- [ Useful commands ](#useful-commands)
 - [ How to init a project ](#how-to-init-a-project)
 - [ Good practices ](#good-practices)
+- [ Useful commands ](#useful-commands)
 
 <a name="how-to-init-a-project"></a>
 
@@ -67,4 +67,7 @@ sls logs -f $FUNCTION_NAME -t
 # Make requests to invoke function based on the request.json file
 sls invoke local -f $FUNCTION_NAME --path request.json
 # Ex: sls invoke local -f image-analysis --path request.json
+
+# Setup aws credentials for serverless framework
+serverless config credentials --provider aws --key $YOUR_ACCESS_KEY --secret $YOUR_SECRET_KEY
 ```
