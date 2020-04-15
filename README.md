@@ -20,10 +20,53 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 
 ## Summary
 
+- [ Projects inside this repository ](#projects-inside-this-repository)
 - [ How to init a project ](#how-to-init-a-project)
 - [ Good practices ](#good-practices)
 - [ Useful commands ](#useful-commands)
 
+<a name="projects-inside-this-repository"></a>
+
+## Projects inside this repository
+
+1. **image-analysis:** A lambda the makes a simple image analysis based on the image url sent to it via HTTP Request.
+```sh
+# patterns
+- Factory Programming Pattern
+
+# aws
+- AWS Rekognition
+- AWS Translate
+
+# libs
+- Axios.js
+```
+2. **dynamo-event-source:** A lambda triggered by the event of putting data on DynamoDB.
+```sh
+# patterns
+- Decorator Programming Pattern
+- Factory Programming Pattern
+- Serverless Mocked Data Test Pattern
+
+# aws
+- AWS DynamoDB
+
+# libs
+- Joi.js
+```
+3. **scheduler:** A cron lambda that gets invoke to read random website page data.
+```sh
+# patterns
+- Multiple Environments Pattern
+- Serverless Modulated Configuration Pattern
+
+# aws
+- AWS DynamoDB
+
+# libs
+- Axios.js
+- Cheerio.js
+```
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
