@@ -68,6 +68,21 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - Axios.js
 - Cheerio.js
 ```
+
+4. **meme-maker:** A lambda that receives a image url and some text in order to turn it into a meme.
+```sh
+# patterns
+- Decorator Programming Pattern
+- Serverless Mocked Data Test Pattern
+
+# aws
+- AWS Lambda Layers
+
+# libs
+- Axios.js
+- Joi.js
+- GraphicsMagick
+```
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
