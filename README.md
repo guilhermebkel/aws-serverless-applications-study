@@ -24,6 +24,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - [ How to init a project ](#how-to-init-a-project)
 - [ Good practices ](#good-practices)
 - [ Useful commands ](#useful-commands)
+- [ Common errors ](#common-errors)
 
 <a name="projects-inside-this-repository"></a>
 
@@ -78,6 +79,13 @@ After installing the framework, just type ```sls``` on terminal and follow the s
 ## Good practices
 
 1. After starting a new project, try to always get it deployed to the cloud asap in order to avoid some awful and unexpected environmental problems
+
+<a name="common-errors"></a>
+
+## Common errors
+
+1. My docker is running, I use the flag **--docker** with **sls** command and still receive the error: ```Please start the Docker daemon to use the invoke local Docker integration.```
+- Solution: Execute the command as root user (add **sudo** before the command).
 
 <a name="useful-commands"></a>
 
