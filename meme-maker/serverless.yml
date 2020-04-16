@@ -1,0 +1,31 @@
+service: meme-maker
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
+exclude:
+  - ./dependencies.zip
+  - ./dependencies/
+  - ./mock/
+
+functions:
+  mememaker:
+    handler: app/handler.mememaker
+    layers:
+      - {Ref: GmLibraryLambdaLayer}
+    events:
+      - http:
+          method: get
+          path: mememaker
+          cors: true
+
+layers:
+  GmLibrary:
+    path: dependencies
+    package:
+      artifact: dependencies.zip
