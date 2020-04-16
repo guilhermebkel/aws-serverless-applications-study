@@ -8,4 +8,3 @@ docker run --rm \
 	lambci/yumda:2 yum install -y GraphicsMagick
 
 zip -r dependencies.zip dependencies
-rm -rf dependencies

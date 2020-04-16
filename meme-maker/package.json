@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "invoke-local": "sls invoke local -f mememaker --docker --logger",
-    "invoke": "sls invoke -f mememaker --logger"
+    "test": "bash text.sh",
+    "invoke-local": "sudo sls invoke local -f mememaker --docker --logger --path mocks/request.json",
+    "invoke": "sls invoke -f mememaker --logger --path mocks/request.json",
+    "build-layer": "sudo bash install.sh",
+    "deploy": "npm run build-layer && sudo sls deploy"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.19.2"
+  }
 }
