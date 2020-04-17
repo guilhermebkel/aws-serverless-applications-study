@@ -84,7 +84,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - GraphicsMagick
 ```
 
-4. **stream-processing:** A lambda that processes data by chunk using SQS and S3 services.
+5. **stream-processing:** A lambda that processes data by chunk using SQS and S3 services.
 ```sh
 # patterns
 - Factory Programming Pattern
