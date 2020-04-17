@@ -88,6 +88,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 ```sh
 # patterns
 - Factory Programming Pattern
+- Serverless Mocked Data Test Pattern
 
 # aws
 - AWS S3
