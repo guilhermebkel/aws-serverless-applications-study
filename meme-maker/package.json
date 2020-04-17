@@ -9,7 +9,7 @@
     "invoke": "sls invoke -f mememaker --logger --path mocks/request.json",
     "build-layer": "sudo bash install.sh",
     "deploy": "npm run build-layer && sudo sls deploy",
-    "logs": "sls logs -f mememaker -t"
+    "logs": "sls logs -f mememaker"
   },
   "keywords": [],
   "author": "",
