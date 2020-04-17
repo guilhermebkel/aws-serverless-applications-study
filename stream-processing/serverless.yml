@@ -3,15 +3,67 @@ service: stream-processing
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${opt:stage, "dev"}
+  environment:
+    BUCKET_NAME: gbkel-files
+    SQS_QUEUE: file-handler
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sqs:SendMessage
+        - sqs:GetQueueUrl
+        - sqs:CreateQueue
+        - sqs:ReceiveMessage
+      Resource: ${self:custom.sqsArn}
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource:
+        - arn:aws:s3:::${self:provider.environment.BUCKET_NAME}/*
+        - arn:aws:s3:::${self:provider.environment.BUCKET_NAME}
 
 plugins:
+  - serverless-localstack
   - serverless-offline
-  - serverless-mocha-plugin
+
+custom:
+  sqsArn:
+    Fn::GetAtt:
+      - SQSQueue
+      - Arn
+  localstack:
+    stages:
+      - local
+    # Disable localstack when making lambda deploy to aws, 
+    # if it is true the deploy goes inside the localstack.
+    autostart: false
+  serverless-offline:
+    useChildProcesses: true
+
+package:
+  individually: true
+  excludeDevDependencies: true
 
 functions:
-  hello:
-    handler: handler.hello
+  s3listener:
+    handler: src/index.s3listener
     events:
-      - http:
-          method: get
-          path: hello
+      - s3:
+          bucket: ${self:provider.environment.BUCKET_NAME}
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: .csv
+  sqslistener:
+    handler: src/index.sqslistener
+    events:
+      - sqs:
+          batchSize: 1
+          arn: ${self:custom.sqsArn}
+
+resources:
+  Resources:
+    SQSQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${self:provider.environment.SQS_QUEUE}
+        VisibilityTimeout: 60

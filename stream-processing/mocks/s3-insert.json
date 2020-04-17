@@ -1,0 +1,38 @@
+{
+	"Records": [
+		{
+			"eventVersion": "2.1",
+			"eventSource": "aws:s3",
+			"awsRegion": "us-east-1",
+			"eventTime": "2020-04-05T03:11:40.488Z",
+			"eventName": "ObjectCreated:Put",
+			"userIdentity": {
+				"principalId": "AWS:AIDAS57FPSOBYAALQC6YJ"
+			},
+			"requestParameters": {
+				"sourceIPAddress": "187.101.170.61"
+			},
+			"responseElements": {
+				"x-amz-request-id": "E81612721688CAA0",
+				"x-amz-id-2": "Q6rjAvrKP6siEU2fK9/l+c7OeIA2J/ApKakL0RgfR+pkcxLEXq16ttW94cnXGZlG1+AGCuGdR3DZhTM6C2ibj3ssYIOLYsrO"
+			},
+			"s3": {
+				"s3SchemaVersion": "1.0",
+				"configurationId": "81ed210e-792e-4bdf-a90f-09b24bc480c0",
+				"bucket": {
+					"name": "gbkel-files",
+					"ownerIdentity": {
+						"principalId": "A1XPRFP53QUCKY"
+					},
+					"arn": "arn:aws:s3:::arquivos-009-erick"
+				},
+				"object": {
+					"key": "file.csv",
+					"size": 11,
+					"eTag": "020c58d1945abb871688022e1dcb52f6",
+					"sequencer": "005E894C720F915B92"
+				}
+			}
+		}
+	]
+}

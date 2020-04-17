@@ -6,7 +6,14 @@
   "scripts": {
     "test": "npx sls invoke test --path test",
     "start": "npx nodemon --exec npm run offline",
-    "offline": "npx sls offline start --host 0.0.0.0"
+    "offline": "npx sls offline start --host 0.0.0.0",
+    "build-local": "sudo docker-compose up --build",
+    "dev": "sudo docker-compose up",
+    "logs:s3listener": "npx sls logs -f s3listener",
+    "logs:sqslistener": "npx sls logs -f sqslistener",
+    "invoke-local:sqslistener": "npx sls invoke local -f sqslistener --path mocks/sqs-event.json",
+    "invoke-local:s3listener": "npx sls invoke local -f s3listener --path mocks/s3-insert.json",
+    "deploy": "npx sls deploy"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +21,12 @@
   "devDependencies": {
     "nodemon": "^2.0.3",
     "serverless": "^1.67.3",
+    "serverless-localstack": "^0.4.24",
     "serverless-mocha-plugin": "^1.12.0",
     "serverless-offline": "^6.1.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.657.0",
+    "csvtojson": "^2.0.10"
   }
 }
