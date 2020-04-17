@@ -83,6 +83,20 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - Joi.js
 - GraphicsMagick
 ```
+
+4. **stream-processing:** A lambda that processes data by chunk using SQS and S3 services.
+```sh
+# patterns
+- Factory Programming Pattern
+
+# aws
+- AWS S3
+- AWS SQS
+
+# libs
+- LocalStack
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
@@ -95,6 +109,7 @@ After installing the framework, just type ```sls``` on terminal and follow the s
 
 1. After starting a new project, try to always get it deployed to the cloud asap in order to avoid some awful and unexpected environmental problems
 
+2. Trigger the lambda on the cloud and mock the received data, in order to make all your tests around it.
 <a name="common-errors"></a>
 
 ## Common errors
