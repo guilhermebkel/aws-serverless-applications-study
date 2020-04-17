@@ -110,7 +110,7 @@ After installing the framework, just type ```sls``` on terminal and follow the s
 
 1. After starting a new project, try to always get it deployed to the cloud asap in order to avoid some awful and unexpected environmental problems
 
-2. Trigger the lambda on the cloud and mock the received data, in order to make all your tests around it.
+2. Trigger the lambda on the cloud and mock the received data, in order to make your tests using it.
 <a name="common-errors"></a>
 
 ## Common errors
