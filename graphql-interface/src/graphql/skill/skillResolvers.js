@@ -1,12 +1,14 @@
 const resolvers = {
 	Query: {
 		async getSkill(root, args, context, info) {
-			return "Hello world!"
+			return context.Skill.findAll(args)
 		}
 	},
 	Mutation: {
 		async createSkill(root, args, context, info) {
-			return "Hello world!"
+			const { id } = await context.Skill.create(args)
+			
+			return id
 		}
 	}
 }

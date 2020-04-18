@@ -1,10 +1,17 @@
+const uuid = require("uuid")
+
 class BaseService {
 	constructor({ repository }) {
 		this.repository = repository
 	}
 
 	async create(item) {
-		return this.repository.create(item)
+		const id = uuid.v1()
+
+		return this.repository.create({
+			...item,
+			id
+		})
 	}
 
 	async findOne(id) {
