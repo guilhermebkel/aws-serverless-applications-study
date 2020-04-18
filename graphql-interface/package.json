@@ -1,0 +1,25 @@
+{
+  "name": "graphql-interface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --exec NODE_ENV=development sls offline start --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "serverless": "^1.67.3",
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-offline": "^6.1.4"
+  },
+  "dependencies": {
+    "apollo-server-lambda": "^2.12.0",
+    "aws-sdk": "^2.658.0",
+    "dynamoose": "^1.11.1",
+    "graphql": "^15.0.0"
+  }
+}
