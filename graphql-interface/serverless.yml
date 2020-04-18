@@ -49,12 +49,6 @@ custom:
             sources: ["./seed/skills.json"]
 
 functions:
-  hello:
-    handler: handler.test
-    events:
-      - http:
-          path: test
-          method: any
   graphql:
     handler: handler.handler
     events:
