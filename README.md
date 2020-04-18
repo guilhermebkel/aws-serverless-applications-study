@@ -98,6 +98,22 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - LocalStack
 ```
 
+6. **graphql-interface:** A lambda which runs a GraphQL Interface able to make modifications on a DynamoDB.
+```sh
+# patterns
+- Factory Programming Pattern
+- Repository Programming Pattern
+- Serverless DynamoDB Migrations
+- Serverless DynamoDB Seeders
+
+# aws
+- AWS DynamoDB
+
+# libs
+- LocalStack
+- GraphQL
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
@@ -111,6 +127,7 @@ After installing the framework, just type ```sls``` on terminal and follow the s
 1. After starting a new project, try to always get it deployed to the cloud asap in order to avoid some awful and unexpected environmental problems
 
 2. Trigger the lambda on the cloud and mock the received data, in order to make your tests using it.
+
 <a name="common-errors"></a>
 
 ## Common errors
