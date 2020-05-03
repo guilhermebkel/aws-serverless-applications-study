@@ -114,6 +114,12 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - GraphQL
 ```
 
+7. **auth:** A lambda which makes authentication and uses other lambda as a middleware to validate authentication.
+```sh
+# libs
+- JSON Web Token
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project

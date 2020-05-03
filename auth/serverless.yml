@@ -1,0 +1,46 @@
+service: auth
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    JWT_KEY: abc123
+
+plugins:
+  - serverless-offline
+
+functions:
+  authorizerFunc:
+    handler: src/authorizer.handler
+  login:
+    handler: src/login.handler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+  heroes-public:
+    handler: src/getHeroes.public
+    events:
+      - http:
+          path: public
+          method: get
+          cors:
+            origins:
+              - '*'
+            headers:
+              - Content-Type
+              - Authorization
+  heroes-private:
+      handler: src/getHeroes.private
+      events:
+        - http:
+            path: private
+            method: get
+            authorizer: authorizerFunc
+            cors:
+              origins:
+                - '*'
+              headers:
+                - Content-Type
+                - Authorization
