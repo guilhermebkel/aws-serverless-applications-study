@@ -120,6 +120,19 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - JSON Web Token
 ```
 
+8. **website:** A serverless app that makes build of a static website, creates a custom url and cdn distribution.
+```sh
+# patterns
+- Serverless Components
+
+# aws
+- AWS S3
+- AWS CloudFront
+
+# libs
+- React.js
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
