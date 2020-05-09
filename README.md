@@ -156,6 +156,10 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - AWS VPC
 - AWS Secrets Manager
 - AWS API Gateway
+
+# libs
+- sequelize.js
+- moment.js
 ```
 
 <a name="how-to-init-a-project"></a>
