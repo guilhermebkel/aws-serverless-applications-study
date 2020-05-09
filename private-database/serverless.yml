@@ -1,0 +1,35 @@
+service: private-database
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    MYSQL_HOST: ${env:MYSQL_HOST, "serverless-db.cluster-csdjfj1321.us-east-1.rds.amazonaws.com"}
+    MYSQL_PORT: ${env:MYSQL_PORT, "3306"}
+    MYSQL_USER: ${env:MYSQL_USER, "mota"}
+    MYSQL_PASS: ${env:MYSQL_PASS, "123"}
+    MYSQL_DATABASE: ${env:MYSQL_DATABASE, "heroes"}
+  vpc:
+    securityGroupIds:
+      - sg-12355123
+    subnetIds:
+      - subnet-cjks324
+      - subnet-vbc2131
+      - subnet-asd12vc
+      - subnet-123jbnc
+      - subnet-kjhg12g
+      - subnet-123vx33
+
+plugins:
+  - serverless-offline
+
+package:
+  excludeDevDependencies: true
+
+functions:
+  hello:
+    handler: src/index.handler
+    events:
+      - http:
+          method: any
+          path: hello

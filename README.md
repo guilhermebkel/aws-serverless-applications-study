@@ -38,6 +38,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 # aws
 - AWS Rekognition
 - AWS Translate
+- AWS API Gateway
 
 # libs
 - Axios.js
@@ -77,6 +78,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 
 # aws
 - AWS Lambda Layers
+- AWS API Gateway
 
 # libs
 - Axios.js
@@ -93,6 +95,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 # aws
 - AWS S3
 - AWS SQS
+- AWS API Gateway
 
 # libs
 - LocalStack
@@ -108,6 +111,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 
 # aws
 - AWS DynamoDB
+- AWS API Gateway
 
 # libs
 - LocalStack
@@ -116,6 +120,9 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 
 7. **auth:** A lambda which makes authentication and uses other lambda as a middleware to validate authentication.
 ```sh
+# aws
+- AWS Api Gateway
+
 # libs
 - JSON Web Token
 ```
@@ -133,13 +140,22 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - React.js
 ```
 
-8. **api-management:** A serverless app to manage api selling/distribution with features like rate limit, throttle, etc.
+9. **api-management:** A serverless app to manage api selling/distribution with features like rate limit, throttle, etc.
 ```sh
 # aws
 - AWS API Gateway
 
 # libs
 - moment.js
+```
+
+10. **private-database:** A that connects to a serverless database using a vpc in order to create some data.
+```sh
+# aws
+- AWS RDS Aurora
+- AWS VPC
+- AWS Secrets Manager
+- AWS API Gateway
 ```
 
 <a name="how-to-init-a-project"></a>

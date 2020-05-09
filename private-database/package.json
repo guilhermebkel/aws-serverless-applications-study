@@ -1,0 +1,23 @@
+{
+  "name": "private-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.3",
+    "sequelize": "^5.21.7",
+    "serverless-offline": "^6.1.5",
+    "serverless": "^1.70.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --exec npm run offline",
+    "offline": "npx sls offline start --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
