@@ -1,0 +1,65 @@
+service: api-management
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - apigateway:GET
+        - apigateway:POST
+      Resource:
+        - arn:aws:apigateway:${self:provider.region}::/*
+  apiKeys:
+    - free: ${file(./default-customers.js):private}
+    - paid:
+      - myPaidKey
+      - zezinho@ze.com
+  usagePlan:
+    - free:
+        quota:
+          limit: 5
+          period: MONTH
+        throttle:
+          burstLimit: 200
+          rateLimit: 200
+    - paid:
+        quota:
+          limit: 1000
+          period: DAY
+        throttle:
+          burstLimit: 400
+          rateLimit: 50
+
+package:
+  excludeDevDependencies: true      
+
+plugins:
+  - serverless-offline
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          private: true
+  getUsage:
+    handler: handler.usage
+    events:
+      - http:
+          path: getUsage
+          method: get
+  getUsagePlans:
+    handler: handler.usagePlans
+    events:
+      - http:
+          path: getUsagePlans
+          method: get
+  addKey:
+    handler: handler.addKey
+    events:
+      - http:
+          path: addKey
+          method: get

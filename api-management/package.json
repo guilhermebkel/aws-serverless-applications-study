@@ -1,0 +1,21 @@
+{
+  "name": "api-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "moment": "^2.25.3",
+    "nodemon": "^2.0.3",
+    "serverless": "^1.70.0",
+    "serverless-offline": "^6.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --exec npm run offline",
+    "offline": "npx sls offline start --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

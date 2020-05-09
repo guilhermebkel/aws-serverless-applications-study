@@ -133,6 +133,15 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - React.js
 ```
 
+8. **api-management:** A serverless app to manage api selling/distribution with features like rate limit, throttle, etc.
+```sh
+# aws
+- AWS API Gateway
+
+# libs
+- moment.js
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
