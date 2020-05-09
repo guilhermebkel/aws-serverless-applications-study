@@ -149,7 +149,7 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - moment.js
 ```
 
-10. **private-database:** A that connects to a serverless database using a vpc in order to create some data.
+10. **private-database:** A lambda that connects to a serverless database using a vpc in order to create some data.
 ```sh
 # aws
 - AWS RDS Aurora
