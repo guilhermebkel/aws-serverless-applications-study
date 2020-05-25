@@ -1,0 +1,12 @@
+{
+    "cluster": {
+        "clusterArn": "arn:aws:ecs:us-east-1:472767929985:cluster/data-processing",
+        "clusterName": "data-processing",
+        "status": "ACTIVE",
+        "registeredContainerInstancesCount": 0,
+        "runningTasksCount": 0,
+        "pendingTasksCount": 0,
+        "activeServicesCount": 0,
+        "statistics": []
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "Policy": {
+        "PolicyName": "stackoverflow-surveys-processing-policy",
+        "PolicyId": "ANPAW4EZKD2AUV35L2IR5",
+        "Arn": "arn:aws:iam::472767929985:policy/stackoverflow-surveys-processing-policy",
+        "Path": "/",
+        "DefaultVersionId": "v1",
+        "AttachmentCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2020-05-25T09:48:22Z",
+        "UpdateDate": "2020-05-25T09:48:22Z"
+    }
+}

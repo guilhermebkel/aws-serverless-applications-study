@@ -1,0 +1,9 @@
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-east-1:472767929985:repository/stackoverflow-surveys-processing",
+        "registryId": "472767929985",
+        "repositoryName": "stackoverflow-surveys-processing",
+        "repositoryUri": "472767929985.dkr.ecr.us-east-1.amazonaws.com/stackoverflow-surveys-processing",
+        "createdAt": 1590400870.0
+    }
+}

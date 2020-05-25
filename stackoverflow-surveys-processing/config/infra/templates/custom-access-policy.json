@@ -1,0 +1,31 @@
+{
+	"Statement": [
+		{
+			"Action": [
+				"s3:ListBucket",
+				"s3:GetObject",
+				"s3:PutObject"
+			],
+			"Effect": "Allow",
+			"Resource": [
+				"arn:aws:s3:::gbkel-serverless-01",
+				"arn:aws:s3:::gbkel-serverless-01/*"
+			]
+		},
+		{
+			"Action": [
+				"s3:PutObject"
+			],
+			"Effect": "Allow",
+			"Resource": "arn:aws:s3:::gbkel-serverless-01/reports/*"
+		},
+		{
+			"Action": [
+				"ssm:GetParametersByPath"
+			],
+			"Effect": "Allow",
+			"Resource": "arn:aws:ssm:*:*:parameter/prod/gbkel-serverless/"
+		}
+	],
+	"Version": "2012-10-17"
+}

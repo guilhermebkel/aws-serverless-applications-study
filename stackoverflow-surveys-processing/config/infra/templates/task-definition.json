@@ -1,0 +1,30 @@
+{
+	"family": "process-data",
+	"networkMode": "awsvpc",
+	"taskRoleArn": "arn:aws:iam::472767929985:role/ecsTaskExecutionRole",
+	"executionRoleArn": "arn:aws:iam::472767929985:role/ecsTaskExecutionRole",
+	"cpu": "256",
+	"memory": "512",
+	"requiresCompatibilities": [
+		"FARGATE"
+	],
+	"containerDefinitions": [
+		{
+			"name": "process-data",
+			"image": "472767929985.dkr.ecr.us-east-1.amazonaws.com/stackoverflow-surveys-processing",
+			"essential": true,
+			"environment": [{
+				"name": "AWS_ENV_PATH",
+				"value": "/prod/process-data/"
+			}],
+			"logConfiguration": {
+				"logDriver": "awslogs",
+				"options": {
+					"awslogs-group": "/ecs/process-data",
+					"awslogs-region": "us-east-1",
+					"awslogs-stream-prefix": "process-data"
+				}
+			}
+		}
+	]
+}
