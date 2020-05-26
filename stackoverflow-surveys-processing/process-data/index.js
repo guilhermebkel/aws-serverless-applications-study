@@ -137,11 +137,11 @@ async function main() {
 	console.timeEnd("Elapsed time")
 }
 
-process.env.SURVEY_FILE = JSON.stringify({
-	Bucket: "gbkel-serverless-01",
-	Key: "survey_results_public.csv"
-})
+// process.env.SURVEY_FILE = JSON.stringify({
+// 	Bucket: "gbkel-serverless-01",
+// 	Key: "survey_results_public.csv"
+// })
 
-process.env.BUCKET_REPORTS = "reports"
+// process.env.BUCKET_REPORTS = "reports"
 
 main()

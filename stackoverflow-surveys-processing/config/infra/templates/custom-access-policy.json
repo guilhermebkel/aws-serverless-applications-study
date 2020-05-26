@@ -24,7 +24,7 @@
 				"ssm:GetParametersByPath"
 			],
 			"Effect": "Allow",
-			"Resource": "arn:aws:ssm:*:*:parameter/prod/gbkel-serverless/"
+			"Resource": "arn:aws:ssm:*:*:parameter/prod/process-data/"
 		}
 	],
 	"Version": "2012-10-17"

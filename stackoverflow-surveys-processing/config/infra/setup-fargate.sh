@@ -92,3 +92,13 @@ aws ec2 authorize-security-group-ingress \
 	--port 80 \
 	--cidr 0.0.0.0/0 \
 	| tee logs/11.authorize-sec-group.txt
+
+aws iam detach-role-policy \
+	--region $REGION \
+	--role-name $ECS_ROLE_NAME \
+	--policy-arn $CUSTOM_POLICY_ARN
+
+aws iam \
+	--region $REGION \
+	delete-policy \
+	--policy-arn $CUSTOM_POLICY_ARN

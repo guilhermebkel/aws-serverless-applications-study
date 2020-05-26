@@ -1,0 +1,51 @@
+service: s3-watch
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    ECS_CLUSTER_NAME: ${ssm:/prod/process-data/ECS_CLUSTER_NAME}
+    ECS_TASK_LAUNCH_TYPE: ${ssm:/prod/process-data/ECS_TASK_LAUNCH_TYPE}
+    ECS_TASK_COUNT: ${ssm:/prod/process-data/ECS_TASK_COUNT}
+    ECS_TASK_DEFINITION: ${ssm:/prod/process-data/ECS_TASK_DEFINITION}
+    ECS_TASK_PLATFORM_VERSION: ${ssm:/prod/process-data/ECS_TASK_PLATFORM_VERSION}
+    ECS_TASK_CONTAINER_NAME: ${ssm:/prod/process-data/ECS_TASK_CONTAINER_NAME}
+    ECS_TASK_CONTAINER_FILE_ENV: ${ssm:/prod/process-data/ECS_TASK_CONTAINER_FILE_ENV}
+    ECS_TASK_SUBNETS: ${ssm:/prod/process-data/ECS_TASK_SUBNETS}
+    ECS_TASK_SECURITY_GROUPS: ${ssm:/prod/process-data/ECS_TASK_SECURITY_GROUPS}
+    ECS_TASK_ASSIGN_PUBLIC_IP: ${ssm:/prod/process-data/ECS_TASK_ASSIGN_PUBLIC_IP}
+    BUCKET_SURVEYS: ${ssm:/prod/process-data/BUCKET_SURVEYS}
+    BUCKET_REPORTS: ${ssm:/prod/process-data/BUCKET_REPORTS}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ecs:RunTask
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - iam:PassRole
+      Resource: ${self:custom.execRoleArn}
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource: "arn:aws:s3:::${self:provider.environment.BUCKET_SURVEYS}"
+      Resource: "arn:aws:s3:::${self:provider.environment.BUCKET_SURVEYS}/*"
+
+package:
+  excludeDevDependencies: true
+
+plugins:
+  - serverless-pseudo-parameters
+
+custom:
+  execRoleArn: { "Fn:Join": ["", [ "arn:aws:iam::", { "Ref": "AWS::AccountId" }, ":role/ecsTaskExecutionRole"]]}
+
+functions:
+  s3watcher:
+    handler: handler.hello
+    events:
+      - s3:
+          bucket: ${self:provider.environment.BUCKET_SURVEYS}
+          event: s3.ObjectCreated:*
+          rules:
+            - suffix: .csv
