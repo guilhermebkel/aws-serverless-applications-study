@@ -162,6 +162,24 @@ In this study we'll be using the **Serverless Framework** which you can use for 
 - moment.js
 ```
 
+11. **stackoverflow-surveys-processing**: A serverless project that get kaggle reports from StackOverflow and consolidate it into a excel file.
+```sh
+# aws
+- AWS Systems Manager
+- AWS SES
+- AWS S3
+- AWS VPC
+- AWS EC2
+- AWS ECS
+- AWS ECR
+- AWS CloudWatch
+- AWS Lambda
+
+# libs
+- mailcomposer.js
+- env-var.js
+```
+
 <a name="how-to-init-a-project"></a>
 
 ## How to init a project
@@ -175,6 +193,8 @@ After installing the framework, just type ```sls``` on terminal and follow the s
 1. After starting a new project, try to always get it deployed to the cloud asap in order to avoid some awful and unexpected environmental problems
 
 2. Trigger the lambda on the cloud and mock the received data, in order to make your tests using it.
+
+3. Create a config file where you can put all the scripts you execute to the Cloud CLI.
 
 <a name="common-errors"></a>
 
