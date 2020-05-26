@@ -1,0 +1,38 @@
+{
+	"Records": [
+			{
+					"eventVersion": "2.1",
+					"eventSource": "aws:s3",
+					"awsRegion": "us-east-1",
+					"eventTime": "2020-05-04T21:42:30.200Z",
+					"eventName": "ObjectCreated:Put",
+					"userIdentity": {
+							"principalId": "AWS:AIDAS57FPSOBYAALQC6YJ"
+					},
+					"requestParameters": {
+							"sourceIPAddress": "187.35.28.42"
+					},
+					"responseElements": {
+							"x-amz-request-id": "F67F1C5BF9659B7F",
+							"x-amz-id-2": "2lbEv9KEs0FGEV03hL948ZMRo/NeCowFqpA0awnHV4FjdIWkxv+TMU3upjZRUZuBeAX3gmpxBYemYRs6rPB2HXq4pH7mMiqX"
+					},
+					"s3": {
+							"s3SchemaVersion": "1.0",
+							"configurationId": "0d891fac-d0cb-4182-9f16-598beb374f37",
+							"bucket": {
+									"name": "gbkel-serverless-01",
+									"ownerIdentity": {
+											"principalId": "A1XPRFP53QUCKY"
+									},
+									"arn": "arn:aws:s3:::gbkel-serverless-01"
+							},
+							"object": {
+									"key": "reports/test.csv",
+									"size": 27,
+									"eTag": "10995398bdbcd7d1498ed8f99dad19d0",
+									"sequencer": "005EB08C46A43073DD"
+							}
+					}
+			}
+	]
+}

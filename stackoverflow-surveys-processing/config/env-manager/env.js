@@ -73,6 +73,14 @@ const variables = {
 	REGION: {
 		value: "us-east-1",
 		type: "String"
+	},
+	SES_EMAIL_TO: {
+		value: "guilhermebromonschenkel@gmail.com",
+		type: "String"
+	},
+	SES_EMAIL_FROM: {
+		value: "guilhermebromonschenkel@gmail.com",
+		type: "String"
 	}
 }
 

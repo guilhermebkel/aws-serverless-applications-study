@@ -93,6 +93,33 @@ aws ec2 authorize-security-group-ingress \
 	--cidr 0.0.0.0/0 \
 	| tee logs/11.authorize-sec-group.txt
 
+TASKS=$(aws ecs list-task-definitions \
+	--region $REGION \
+	--query "taskDefinitionArns[*]" \
+	| jq -r '.[]')
+
+for i in $(printf '%s\n' "$TASKS[@]"); do
+	aws ecs deregister-task-definition \
+		--region $REGION \
+		--task-definition $i
+done
+
+aws logs delete-log-group \
+	--region $REGION \
+	--log-group-name $LOG_GROUP_NAME
+
+aws ecs delete-cluster \
+	--region $REGION \
+	--cluster $CLUSTER_NAME
+
+aws ec2 delete-security-group \
+	--region $REGION \
+	--group-name $SECURITY_GROUP_NAME
+
+aws ecr delete-repository \
+	--region $REGION \
+	--repository-name $APP_NAME
+
 aws iam detach-role-policy \
 	--region $REGION \
 	--role-name $ECS_ROLE_NAME \
@@ -102,3 +129,18 @@ aws iam \
 	--region $REGION \
 	delete-policy \
 	--policy-arn $CUSTOM_POLICY_ARN
+
+aws iam detach-role-policy \
+	--region $REGION \
+	--role-name $ECS_ROLE_NAME \
+	--policy-arn $ECS_ROLE_ARN
+
+aws iam delete-role \
+	--region $REGION \
+	--role-name $ECS_ROLE_NAME
+
+aws ssm delete-parameters \
+	--region $REGION \
+	--names `aws ssm get-parameters-by-path "$SSM_ENV_PATH" --query "Parameters[*].Name" --out text --max-items 9`
+
+aws s3 rm s3://gbkel-serverless-01 --recursive
