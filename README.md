@@ -1,4 +1,4 @@
-# aws-serverless-applications
+# aws-serverless-applications-study
 :cloud: A deep study about serverless applications on aws
 
 When we talk about **Serverless**, it basically means:
